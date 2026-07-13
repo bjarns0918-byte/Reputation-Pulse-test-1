@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sign up — Reputation Pulse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #14213D; --paper: #F5F6F2; --card: #ffffff; --line: #E2E4DE;
+    --gold: #E8A33D; --muted: #6B7280; --coral: #D64545; --coral-light: #FBE7E5;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: "IBM Plex Sans", -apple-system, sans-serif; line-height: 1.5; }
+  .wrap { max-width: 420px; margin: 0 auto; padding: 60px 24px; }
+  .brand-mark { display: flex; align-items: center; gap: 12px; justify-content: center; margin-bottom: 28px; }
+  .brand-mark h1 { font-family: "Fraunces", Georgia, serif; font-size: 24px; font-weight: 600; margin: 0; }
+  .panel { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 28px 26px; box-shadow: 0 1px 2px rgba(20,33,61,0.05); }
+  h2 { font-family: "Fraunces", Georgia, serif; font-size: 19px; font-weight: 600; margin: 0 0 6px; }
+  p.sub { font-size: 13px; color: var(--muted); margin: 0 0 20px; }
+  label { display: block; font-size: 13px; color: var(--muted); margin: 0 0 4px; }
+  input { width: 100%; font-family: inherit; font-size: 14px; border: 1px solid var(--line); border-radius: 7px; padding: 10px 12px; margin-bottom: 14px; }
+  input:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+  button { width: 100%; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; border: none; border-radius: 7px; padding: 12px; background: var(--ink); color: #fff; }
+  button:hover { background: #0d1730; }
+  button:disabled { background: #a3a8b5; cursor: default; }
+  .error { font-size: 13px; color: var(--coral); background: var(--coral-light); border-radius: 7px; padding: 10px 12px; margin-bottom: 14px; display: none; }
+  .footer-link { text-align: center; font-size: 13px; color: var(--muted); margin-top: 18px; }
+  .footer-link a { color: var(--ink); font-weight: 600; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand-mark">
+    <svg width="30" height="30" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="17" cy="17" r="16" fill="#14213D"/>
+      <path d="M9 18h3.2l1.6-4 2.4 8 1.8-6.5 1.4 2.5H25" stroke="#E8A33D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+    <h1>Reputation Pulse</h1>
+  </div>
+
+  <div class="panel">
+    <h2>Create your account</h2>
+    <p class="sub">7-day free trial, then $35/month. Cancel anytime.</p>
+    <div class="error" id="errorBox"></div>
+
+    <form id="signupForm">
+      <label for="businessName">Business name</label>
+      <input type="text" id="businessName" placeholder="Tony's Pizza" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="At least 8 characters" minlength="8" required>
+
+      <label for="phone">Phone number <span style="font-weight:400;">(optional, for text reminders)</span></label>
+      <input type="tel" id="phone" placeholder="(555) 555-5555">
+
+      <button type="submit" id="submitBtn">Start free 7-day trial</button>
+    </form>
+
+    <div class="footer-link">Already have an account? <a href="/login.html">Log in</a></div>
+  </div>
+  <p style="text-align:center; font-size:11px; color:var(--muted); margin-top:20px;">
+    By signing up, you agree to our <a href="/terms.html" style="color:var(--muted);">Terms</a> and
+    <a href="/privacy.html" style="color:var(--muted);">Privacy Policy</a>.
+  </p>
+</div>
+
+<script>
+document.getElementById('signupForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const errorBox = document.getElementById('errorBox');
+  errorBox.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Creating your account...';
+
+  const body = {
+    businessName: document.getElementById('businessName').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    password: document.getElementById('password').value,
+    phone: document.getElementById('phone').value.trim()
+  };
+
+  try {
+    const res = await fetch('/api/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    }).then(r => r.json());
+
+    if (!res.ok) {
+      errorBox.textContent = res.error;
+      errorBox.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Start free 7-day trial';
+      return;
+    }
+    window.location.href = res.checkoutUrl;
+  } catch (err) {
+    errorBox.textContent = 'Something went wrong. Please try again.';
+    errorBox.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Start free 7-day trial';
+  }
+});
+</script>
+</body>
+</html>
