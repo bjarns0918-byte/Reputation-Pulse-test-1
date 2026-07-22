@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Support — RepAnchor</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="Frequently asked questions and support for RepAnchor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #14213D; --paper: #F5F6F2; --muted: #6B7280; --line: #E2E4DE; --gold: #E8A33D; --card: #fff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: "IBM Plex Sans", -apple-system, sans-serif; line-height: 1.6; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 60px 24px; }
+  .brand-mark { display: flex; align-items: center; gap: 12px; justify-content: center; margin-bottom: 28px; }
+  .brand-mark span { font-family: "Fraunces", Georgia, serif; font-size: 22px; font-weight: 600; }
+  h1 { font-family: "Fraunces", Georgia, serif; font-size: 28px; font-weight: 700; text-align: center; margin: 0 0 8px; }
+  p.lead { text-align: center; color: var(--muted); font-size: 14px; margin: 0 0 36px; }
+  .faq-item { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; }
+  .faq-item h3 { font-family: "Fraunces", Georgia, serif; font-size: 16px; margin: 0 0 8px; }
+  .faq-item p { font-size: 14px; color: #333; margin: 0; }
+  .contact-cta { text-align: center; margin-top: 32px; font-size: 14px; color: var(--muted); }
+  .contact-cta a { color: var(--ink); font-weight: 700; text-decoration: none; }
+  .back { display: block; text-align: center; font-size: 13px; color: var(--muted); text-decoration: none; margin-top: 20px; }
+
+  .site-footer { border-top: 1px solid #E2E4DE; margin-top: 40px; padding: 22px 24px; }
+  .footer-inner { max-width: 1040px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+  .footer-brand { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #6B7280; }
+  .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+  .footer-links a { font-size: 12px; color: #6B7280; text-decoration: none; }
+  .footer-links a:hover { color: #14213D; text-decoration: underline; }
+  .footer-status { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #6B7280; }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #2D9C8A; display: inline-block; }
+
+  a, button, input, textarea, select { transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease; }
+  button:active:not(:disabled) { transform: scale(0.98); }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  .wrap { animation: fadeIn 0.35s ease; }
+
+  h1, h2, h3, h4 { letter-spacing: -0.01em; }
+  .panel, .review-card, .price-card, .feature-card { transition: box-shadow 0.18s ease, transform 0.18s ease; }
+  .panel:hover, .review-card:hover, .price-card:hover, .feature-card:hover { box-shadow: 0 4px 16px rgba(20,33,61,0.08); transform: translateY(-1px); }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 2px solid var(--gold); outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand-mark">
+    <svg width="30" height="30" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="17" cy="17" r="16" fill="#14213D"/>
+      <circle cx="17" cy="9" r="2" fill="none" stroke="#E8A33D" stroke-width="1.6"/>
+      <line x1="17" y1="11" x2="17" y2="20" stroke="#E8A33D" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="13" y1="14.5" x2="21" y2="14.5" stroke="#E8A33D" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M9.5,18 Q9.5,23 14,24" fill="none" stroke="#E8A33D" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M24.5,18 Q24.5,23 20,24" fill="none" stroke="#E8A33D" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="10" cy="28.3" r="1" fill="#E8A33D"/>
+      <circle cx="13.25" cy="28.3" r="1" fill="#E8A33D"/>
+      <circle cx="16.5" cy="28.3" r="1" fill="#E8A33D"/>
+      <circle cx="19.75" cy="28.3" r="1" fill="#E8A33D"/>
+      <circle cx="23" cy="28.3" r="1" fill="#E8A33D"/>
+    </svg>
+    <span>RepAnchor</span>
+  </div>
+
+  <h1>Support & FAQ</h1>
+  <p class="lead">Common questions, answered plainly.</p>
+
+  <div class="faq-item">
+    <h3>What happens if I don't like a drafted reply?</h3>
+    <p>You're never stuck with what we draft. For 1-3 star reviews, you'll see two reply options and can edit either one directly in your dashboard before posting - change a word, rewrite a sentence, or the whole thing. Nothing posts without your approval.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Can I switch between the monthly and annual plan?</h3>
+    <p>Yes. Reach out to us at repanchorapp@gmail.com and we'll take care of the switch for you.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Is my data safe?</h3>
+    <p>Your password is never stored in plain text - only a secure one-way hash. Your Google connection is used solely to read and reply to your own reviews. We don't sell your data or share it with advertisers.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>What if I miss a review that needed a personal touch?</h3>
+    <p>4 and 5-star reviews post automatically. Anything more sensitive (1-3 stars) always waits for your approval first, and you'll get an instant email alert the moment one comes in - not just in the monthly digest.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Can I cancel anytime?</h3>
+    <p>Yes, directly from your account settings - no phone calls needed. You'll keep access through the end of your current billing period.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Can I get a refund?</h3>
+    <p>Yes - if you're not satisfied, email us at repanchorapp@gmail.com within 24 hours of being charged for a full refund. Requests after that window are considered case by case.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Do you support Yelp or Facebook reviews?</h3>
+    <p>Not yet - we're focused entirely on Google right now, since it's where the deepest, most reliable integration is possible.</p>
+  </div>
+
+  <p class="contact-cta">Still have a question? <a href="/contact.html">Contact us</a></p>
+  <a href="/" class="back">&larr; Back to home</a>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="18" height="18" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="17" cy="17" r="16" fill="#14213D"/>
+        <circle cx="17" cy="9" r="2" fill="none" stroke="#E8A33D" stroke-width="1.8"/>
+        <line x1="17" y1="11" x2="17" y2="20" stroke="#E8A33D" stroke-width="2" stroke-linecap="round"/>
+        <line x1="13" y1="14.5" x2="21" y2="14.5" stroke="#E8A33D" stroke-width="2" stroke-linecap="round"/>
+        <path d="M9.5,18 Q9.5,23 14,24" fill="none" stroke="#E8A33D" stroke-width="2" stroke-linecap="round"/>
+        <path d="M24.5,18 Q24.5,23 20,24" fill="none" stroke="#E8A33D" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>&copy; 2026 RepAnchor &middot; v1.0</span>
+    </div>
+    <div class="footer-links">
+      <a href="/support.html">Support</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+    </div>
+    <a href="/status.html" class="footer-status" style="text-decoration:none;">
+      <span class="status-dot"></span> All systems operational
+    </a>
+  </div>
+</footer>
+</body>
+</html>
